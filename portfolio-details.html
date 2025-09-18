@@ -163,19 +163,8 @@
               </div>
 
               <div class="thumbnail-grid" data-aos="fade-up" data-aos-delay="200">
-                <div class="row g-2 mt-3">
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-4.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-6.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-11.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-12.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
+                <div class="row g-2 mt-3" id="gallery-thumbnails">
+                  <!-- Dynamic gallery thumbnails will be loaded here -->
                 </div>
               </div>
 
@@ -359,6 +348,9 @@
       // Load project images
       loadProjectImages(project.images);
       
+      // Load gallery thumbnails
+      loadGalleryThumbnails(project.images);
+      
       // Load tech stack
       loadTechStack(project.technologies);
       
@@ -408,6 +400,30 @@
       
       window.swiperInstances = window.swiperInstances || {};
       window.swiperInstances.portfolioDetails = new Swiper('.portfolio-details-slider', swiperConfig);
+    }
+
+    function loadGalleryThumbnails(images) {
+      const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+      thumbnailsContainer.innerHTML = '';
+      
+      if (images && images.length > 1) {
+        // Show up to 4 thumbnails (skip the first image as it's already in the main slider)
+        const thumbnailImages = images.slice(1, 5);
+        
+        thumbnailImages.forEach(image => {
+          const col = document.createElement('div');
+          col.className = 'col-3';
+          
+          const img = document.createElement('img');
+          img.src = image;
+          img.alt = 'Gallery Image';
+          img.className = 'img-fluid glightbox';
+          img.setAttribute('data-gallery', 'portfolio-gallery');
+          
+          col.appendChild(img);
+          thumbnailsContainer.appendChild(col);
+        });
+      }
     }
 
     function loadTechStack(technologies) {
