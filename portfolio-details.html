@@ -254,8 +254,8 @@
               </div>
 
               <div class="cta-buttons" data-aos="fade-up" data-aos-delay="400">
-                <a href="#" class="btn-view-project">View Live Project</a>
-                <a href="#" class="btn-next-project">Next Project <i class="bi bi-arrow-right"></i></a>
+                <a href="#" class="btn-view-project" id="view-live-project">View Live Project</a>
+                <a href="#" class="btn-next-project" id="next-project-link">Next Project <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -356,6 +356,12 @@
       
       // Load features
       loadProjectFeatures(project.features);
+      
+      // Setup next project link
+      setupNextProjectLink(project.id);
+      
+      // Setup view live project link
+      setupViewLiveProjectLink(project.website);
     }
 
     function loadProjectImages(images) {
@@ -405,73 +411,91 @@
     function loadGalleryThumbnails(images) {
       const thumbnailsContainer = document.getElementById('gallery-thumbnails');
       thumbnailsContainer.innerHTML = '';
-      
-      if (images && images.length > 1) {
-        // Show up to 4 thumbnails (skip the first image as it's already in the main slider)
-        const thumbnailImages = images.slice(1, 5);
-        
-        thumbnailImages.forEach((image, index) => {
+
+      // Show all images as thumbnails (full mock data)
+      if (images && images.length > 0) {
+        images.forEach((image, index) => {
           const col = document.createElement('div');
           col.className = 'col-3';
-          
+
           const img = document.createElement('img');
           img.src = image;
-          img.alt = 'Gallery Image';
+          img.alt = `Gallery Image ${index + 1}`;
           img.className = 'img-fluid glightbox thumbnail-preview';
           img.setAttribute('data-gallery', 'portfolio-gallery');
           img.style.cursor = 'pointer';
           img.style.transition = 'opacity 0.3s ease';
-          
-          // Add click event to show preview in main slider
+
+          // Add click event to open image in lightbox (if glightbox is used)
           img.addEventListener('click', function() {
-            showImagePreview(image, index + 1); // +1 because we skipped the first image
+            if (typeof GLightbox === 'function') {
+              const lightbox = GLightbox({
+                elements: images.map((imgSrc, i) => ({
+                  href: imgSrc,
+                  type: 'image',
+                })),
+                startAt: index
+              });
+              lightbox.open();
+            } else {
+              window.open(image, '_blank');
+            }
           });
-          
+
           // Add hover effect
           img.addEventListener('mouseenter', function() {
             this.style.opacity = '0.8';
           });
-          
+
           img.addEventListener('mouseleave', function() {
             this.style.opacity = '1';
           });
-          
+
           col.appendChild(img);
           thumbnailsContainer.appendChild(col);
         });
       }
     }
 
-    function showImagePreview(imageSrc, slideIndex) {
-      // Update the main slider to show the clicked image
-      if (window.swiperInstances && window.swiperInstances.portfolioDetails) {
-        // Find the slide index in the main slider
-        const slides = document.querySelectorAll('#portfolio-slides .swiper-slide');
-        let targetSlideIndex = 0;
-        
-        slides.forEach((slide, index) => {
-          const slideImg = slide.querySelector('img');
-          if (slideImg && slideImg.src.includes(imageSrc.split('/').pop())) {
-            targetSlideIndex = index;
-          }
-        });
-        
-        // Navigate to the target slide
-        window.swiperInstances.portfolioDetails.slideTo(targetSlideIndex);
-        
-        // Add visual feedback
-        const clickedThumbnail = document.querySelector(`img[src="${imageSrc}"]`);
-        if (clickedThumbnail) {
-          // Remove active class from all thumbnails
-          document.querySelectorAll('.thumbnail-preview').forEach(thumb => {
-            thumb.style.border = 'none';
-            thumb.style.boxShadow = 'none';
-          });
-          
-          // Add active styling to clicked thumbnail
-          clickedThumbnail.style.border = '3px solid #007bff';
-          clickedThumbnail.style.boxShadow = '0 4px 8px rgba(0, 123, 255, 0.3)';
-        }
+    // The showImagePreview function is no longer needed for navigation, but if you want to keep it for other uses, you can leave it as is or remove it.
+
+    function getNextProjectId(currentId) {
+      const projectIds = Object.keys(portfolioProjects);
+      const currentIndex = projectIds.indexOf(currentId);
+      
+      if (currentIndex === -1) {
+        return null; // Current project not found
+      }
+      
+      // Get next project ID (circular - if last project, go to first)
+      const nextIndex = (currentIndex + 1) % projectIds.length;
+      return projectIds[nextIndex];
+    }
+
+    function setupNextProjectLink(currentProjectId) {
+      const nextProjectId = getNextProjectId(currentProjectId);
+      const nextProjectLink = document.getElementById('next-project-link');
+      
+      if (nextProjectId && nextProjectLink) {
+        const nextProject = portfolioProjects[nextProjectId];
+        nextProjectLink.href = `portfolio-details.html?id=${nextProjectId}`;
+        nextProjectLink.innerHTML = `${nextProject.title} <i class="bi bi-arrow-right"></i>`;
+      } else {
+        // Hide the link if no next project found
+        nextProjectLink.style.display = 'none';
+      }
+    }
+
+    function setupViewLiveProjectLink(website) {
+      const viewLiveLink = document.getElementById('view-live-project');
+      
+      if (website && viewLiveLink) {
+        viewLiveLink.href = website;
+        viewLiveLink.target = '_blank';
+        viewLiveLink.style.display = 'inline-block';
+      } else {
+        // Hide the link if no website provided
+        viewLiveLink.style.display = 'none';
       }
     }
 
