@@ -113,9 +113,14 @@ const portfolioProjects = {
       "Mobile-optimized REST API"
     ],
     images: [
-      "assets/img/portfolio/portfolio-1.webp",
-      "assets/img/portfolio/portfolio-2.webp",
-      "assets/img/portfolio/portfolio-4.webp"
+      "assets/img/portfolio/link-icon.jpg",
+      "assets/img/portfolio/link-1.jpg",
+      "assets/img/portfolio/link-2.jpg",
+      "assets/img/portfolio/link-3.jpg",
+      "assets/img/portfolio/link-4.jpg",
+      "assets/img/portfolio/link-5.jpg",
+      "assets/img/portfolio/link-6.jpg",
+      "assets/img/portfolio/link-7.jpg"
     ],
     date: "September 2024",
     client: "Excellent Nodes",
@@ -145,9 +150,11 @@ const portfolioProjects = {
       "Analytics dashboard for recognition results"
     ],
     images: [
-      "assets/img/portfolio/portfolio-10.webp",
-      "assets/img/portfolio/portfolio-11.webp",
-      "assets/img/portfolio/portfolio-12.webp"
+      "assets/img/portfolio/qrs-icon.jpg",
+      "assets/img/portfolio/qrs-1.jpg",
+      "assets/img/portfolio/qrs-2.jpg",
+      "assets/img/portfolio/qrs-3.jpg",
+      "assets/img/portfolio/qrs-4.jpg"
     ],
     date: "August 2024",
     client: "Excellent Nodes",
@@ -167,7 +174,7 @@ const portfolioProjects = {
     category: "booking",
     description: "A comprehensive salon booking management system with full ERP integration. Built with Python and Django REST Framework, providing complete business management solutions for salon owners.",
     longDescription: "Bizbookly is a complete business management solution designed specifically for salon owners. It integrates booking management, point-of-sale systems, inventory tracking, and customer relationship management into a single, powerful platform.",
-    technologies: ["Python", "Django REST Framework", "MySQL", "React", "Redis", "Stripe API"],
+    technologies: ["Python", "Django REST Framework", "MySQL", "React"],
     features: [
       "Advanced booking system with calendar management",
       "Point-of-sale (POS) system with payment processing",
@@ -179,9 +186,16 @@ const portfolioProjects = {
       "Comprehensive billing and reporting system"
     ],
     images: [
-      "assets/img/portfolio/portfolio-5.webp",
-      "assets/img/portfolio/portfolio-6.webp",
-      "assets/img/portfolio/portfolio-7.webp"
+      "assets/img/portfolio/biz-icon.png",
+      "assets/img/portfolio/biz-1.png",
+      "assets/img/portfolio/biz-2.png",
+      "assets/img/portfolio/biz-3.png",
+      "assets/img/portfolio/biz-4.png",
+      "assets/img/portfolio/biz-5.jpg",
+      "assets/img/portfolio/biz-6.jpg",
+      "assets/img/portfolio/biz-7.jpg",
+      "assets/img/portfolio/biz-8.jpg",
+      "assets/img/portfolio/biz-9.jpg"
     ],
     date: "July 2024",
     client: "Bizbookly Inc.",
@@ -213,9 +227,12 @@ const portfolioProjects = {
       "Analytics dashboard for business insights"
     ],
     images: [
-      "assets/img/portfolio/portfolio-8.webp",
-      "assets/img/portfolio/portfolio-1.webp",
-      "assets/img/portfolio/portfolio-2.webp"
+      "assets/img/portfolio/vape-icon.jpg",
+      "assets/img/portfolio/vape-1.jpg",
+      "assets/img/portfolio/vape-2.jpg",
+      "assets/img/portfolio/vape-3.jpg",
+      "assets/img/portfolio/vape-4.jpg",
+      "assets/img/portfolio/vape-5.jpg"
     ],
     date: "June 2024",
     client: "Vape Corporation",
@@ -246,8 +263,9 @@ const portfolioProjects = {
     ],
     images: [
       "assets/img/portfolio/portfolio-4.webp",
-      "assets/img/portfolio/portfolio-11.webp",
-      "assets/img/portfolio/portfolio-12.webp"
+      "assets/img/portfolio/portfolio-5.webp",
+      "assets/img/portfolio/portfolio-6.webp",
+      "assets/img/portfolio/portfolio-7.webp"
     ],
     date: "May 2024",
     client: "Tech Solutions Inc.",
@@ -277,9 +295,10 @@ const portfolioProjects = {
       "Automated payroll calculation and reporting"
     ],
     images: [
-      "assets/img/portfolio/portfolio-7.webp",
       "assets/img/portfolio/portfolio-8.webp",
-      "assets/img/portfolio/portfolio-1.webp"
+      "assets/img/portfolio/portfolio-10.webp",
+      "assets/img/portfolio/portfolio-11.webp",
+      "assets/img/portfolio/portfolio-12.webp"
     ],
     date: "April 2024",
     client: "HRMEX Solutions",
