@@ -456,3 +456,20 @@ function getAllServices() {
 function getProjectsByCategory(category) {
   return Object.values(portfolioProjects).filter(project => project.category === category);
 }
+
+// Additional utility functions for loading data
+function getPersonalInfo() {
+  return portfolioData.personalInfo;
+}
+
+function getSkills() {
+  return portfolioData.skills;
+}
+
+function getEducation() {
+  return portfolioData.education;
+}
+
+function getExperience() {
+  return portfolioData.experience;
+}

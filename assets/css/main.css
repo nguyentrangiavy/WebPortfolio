@@ -749,7 +749,7 @@ section,
 }
 
 .hero .hero-main-image {
-  border-radius: 20px;
+  border-radius: 50px;
   box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 85%);
   position: relative;
   z-index: 2;
@@ -757,12 +757,14 @@ section,
 
 .hero .image-overlay {
   position: absolute;
-  top: 20px;
+  top: 15px;
   left: 20px;
   right: -20px;
   bottom: -20px;
+  width: 90%;
+  height: 90%;
   background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 30%));
-  border-radius: 20px;
+  border-radius: 50px;
   z-index: 1;
 }
 
@@ -813,7 +815,7 @@ section,
 
 .hero .floating-card.card-1 {
   top: 10%;
-  left: -10%;
+  left: -20%;
   animation-delay: 0s;
 }
 
@@ -826,7 +828,7 @@ section,
 
 .hero .floating-card.card-2 {
   top: 60%;
-  right: -15%;
+  right: -5%;
   animation-delay: 2s;
 }
 
@@ -839,7 +841,7 @@ section,
 
 .hero .floating-card.card-3 {
   bottom: 15%;
-  left: -5%;
+  left: -20%;
   animation-delay: 4s;
 }
 
