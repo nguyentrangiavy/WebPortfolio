@@ -103,7 +103,7 @@ const portfolioProjects = {
     category: "social",
     description: "A comprehensive mobile application for social networking and event management, built with Python and FastAPI. The platform enables users to connect with friends, create and manage events, and receive real-time notifications.",
     longDescription: "AIOS Link is a sophisticated social networking platform that revolutionizes how people connect and organize events. Built with modern backend technologies, it provides a seamless experience for users to build their social networks and manage their social activities efficiently.",
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "WebSocket"],
+    technologies: ["Python", "FastAPI", "MySQL", "WebSocket"],
     features: [
       "Real-time friend connections and social graph management",
       "Event creation, management, and RSVP system",
@@ -140,7 +140,7 @@ const portfolioProjects = {
     category: "detection",
     description: "An innovative application that recognizes advertisements from audio clips using advanced machine learning techniques. Built with Python, Django REST Framework, and Librosa for audio processing.",
     longDescription: "QRSound represents a breakthrough in audio recognition technology, enabling automatic detection and identification of advertisements from audio content. The system processes audio clips in real-time and provides detailed analytics about detected advertisements.",
-    technologies: ["Python", "Django REST Framework", "Librosa", "TensorFlow", "PostgreSQL", "Celery"],
+    technologies: ["Python", "Django REST Framework", "Librosa", "MySQL"],
     features: [
       "Real-time audio recording and processing",
       "Advanced sound analysis using machine learning",
@@ -174,7 +174,7 @@ const portfolioProjects = {
     category: "booking",
     description: "A comprehensive salon booking management system with full ERP integration. Built with Python and Django REST Framework, providing complete business management solutions for salon owners.",
     longDescription: "Bizbookly is a complete business management solution designed specifically for salon owners. It integrates booking management, point-of-sale systems, inventory tracking, and customer relationship management into a single, powerful platform.",
-    technologies: ["Python", "Django REST Framework", "MySQL", "React"],
+    technologies: ["Python", "Django REST Framework", "MySQL", "React.js"],
     features: [
       "Advanced booking system with calendar management",
       "Point-of-sale (POS) system with payment processing",
@@ -215,7 +215,7 @@ const portfolioProjects = {
     category: "marketplace",
     description: "A comprehensive B2B2C retail and online sales platform with full ERP integration. Built with Python and Django REST Framework, serving both business customers and end consumers.",
     longDescription: "Vape is a sophisticated e-commerce platform that serves both business-to-business (B2B) and business-to-consumer (B2C) markets. The platform provides comprehensive retail management solutions with advanced ERP integration.",
-    technologies: ["Python", "Django REST Framework", "MySQL", "Vue.js", "Docker", "AWS"],
+    technologies: ["Python", "Django REST Framework", "MySQL", "Next.js", "Docker", "AWS"],
     features: [
       "Multi-channel POS system for retail operations",
       "Advanced inventory management with real-time tracking",
@@ -252,7 +252,7 @@ const portfolioProjects = {
     category: "other",
     description: "A sophisticated predefined Q&A chatbot system with configurable responses and conversation flow management. Built with Python and Django REST Framework.",
     longDescription: "This intelligent chatbot system provides automated customer support through predefined Q&A interactions. The system features an admin panel for configuring responses and managing conversation flows dynamically.",
-    technologies: ["Python", "Django REST Framework", "PostgreSQL", "NLTK", "WebSocket"],
+    technologies: ["Python", "Django REST Framework", "MySQL", "WebSocket"],
     features: [
       "Predefined question-answering API with high accuracy",
       "Configurable conversation flow management",
@@ -262,10 +262,7 @@ const portfolioProjects = {
       "Real-time chat interface with WebSocket"
     ],
     images: [
-      "assets/img/portfolio/portfolio-4.webp",
-      "assets/img/portfolio/portfolio-5.webp",
-      "assets/img/portfolio/portfolio-6.webp",
-      "assets/img/portfolio/portfolio-7.webp"
+      "assets/img/portfolio/chatbot.jpg",
     ],
     date: "May 2024",
     client: "Tech Solutions Inc.",
@@ -285,7 +282,7 @@ const portfolioProjects = {
     category: "hrm",
     description: "A comprehensive internal HR management and attendance tracking system built with Python and FastAPI. Designed for efficient employee management and workforce analytics.",
     longDescription: "HRMEX is a modern HR management system that streamlines internal human resource operations. It provides comprehensive attendance tracking, employee management, and role-based access control for organizations of all sizes.",
-    technologies: ["Python", "FastAPI", "PostgreSQL", "JWT", "React", "Docker"],
+    technologies: ["Python", "FastAPI", "MySQL", "JWT", "Next.js"],
     features: [
       "Real-time attendance tracking with biometric integration",
       "Comprehensive employee profile management",
@@ -295,10 +292,7 @@ const portfolioProjects = {
       "Automated payroll calculation and reporting"
     ],
     images: [
-      "assets/img/portfolio/portfolio-8.webp",
-      "assets/img/portfolio/portfolio-10.webp",
-      "assets/img/portfolio/portfolio-11.webp",
-      "assets/img/portfolio/portfolio-12.webp"
+      "assets/img/portfolio/hrmex.png",
     ],
     date: "April 2024",
     client: "HRMEX Solutions",

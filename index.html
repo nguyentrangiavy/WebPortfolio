@@ -644,7 +644,7 @@
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200" id="portfolio-filters">
+          <!-- <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200" id="portfolio-filters">
             <li data-filter="*" class="filter-active">
               <i class="bi bi-grid-3x3"></i> All Projects
             </li>
@@ -666,19 +666,18 @@
             <li data-filter=".filter-other">
               Other
             </li>
-          </ul>
+          </ul> -->
 
-          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300" id="portfolio-container">
-            <!-- Dynamic portfolio items will be loaded here -->
+          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300" id="portfolio-container"></div>
+
                       </div>
+        <!-- End Portfolio Container -->
 
-        </div><!-- End Portfolio Container -->
-
-      </div>
+                      </div>
 
     </section><!-- /Portfolio Section -->
 
-    <style>
+    <!-- <style>
       /* Ensure portfolio section maintains proper spacing */
       #portfolio {
         position: relative;
@@ -712,7 +711,7 @@
         margin-top: 0;
         padding-top: 60px;
       }
-    </style>
+    </style> -->
 
     <!-- Testimonials Section -->
     <!-- <section id="testimonials" class="testimonials section"> -->
@@ -1114,8 +1113,8 @@
       </div>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href="https://www.facebook.com/vy.nguyen.tran.gia.2025"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/vy.ntg/?igsh=OTRkem13cHZ0bG5l&utm_source=qr&fbclid=IwY2xjawM5HGJleHRuA2FlbQIxMABicmlkETFncG0yaHNvWVRidHRxbTNYAR69S_W8GGAgcHGoJRDdI4jG3VlIZDJbrs1swiyfU4IzOtgmowoJokphi7btJA_aem_kXYAuz8OMl8Z5h1Dmp1Kxw#"><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-linkedin"></i></a>
       </div>
       <div class="credits">
@@ -1247,106 +1246,131 @@
       }
     }
 
-         function loadPortfolioData() {
-           const projects = getAllProjects();
-           const portfolioContainer = document.getElementById('portfolio-container');
-           
-           if (portfolioContainer && projects.length > 0) {
-             portfolioContainer.innerHTML = '';
-             
-             projects.forEach((project, index) => {
-               const portfolioItem = document.createElement('div');
-               portfolioItem.className = `col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-${project.category}`;
-               
-               portfolioItem.innerHTML = `
-                 <article class="portfolio-entry">
-                   <figure class="entry-image">
-                     <img src="${project.images[0]}" class="img-fluid" alt="" loading="lazy">
-                     <div class="entry-overlay">
-                       <div class="overlay-content">
-                         <div class="entry-meta">${project.category.charAt(0).toUpperCase() + project.category.slice(1)}</div>
-                         <h3 class="entry-title">${project.title}</h3>
-                         <div class="entry-links">
-                           <a href="${project.images[0]}" class="glightbox" data-gallery="portfolio-gallery-${project.category}" data-glightbox="title: ${project.title}; description: ${project.description}">
-                             <i class="bi bi-arrows-angle-expand"></i>
-                           </a>
-                           <a href="portfolio-details.html?id=${project.id}">
-                             <i class="bi bi-arrow-right"></i>
-                           </a>
-                         </div>
-                       </div>
-                     </div>
-                   </figure>
-                 </article>
-               `;
-               
-               portfolioContainer.appendChild(portfolioItem);
-             });
-             
-             // Initialize portfolio filtering
-             initializePortfolioFiltering();
-             
-             // Reinitialize isotope after loading new content
-             if (typeof Isotope !== 'undefined') {
-               setTimeout(() => {
-                 const iso = new Isotope(portfolioContainer, {
-                   itemSelector: '.portfolio-item',
-                   layoutMode: 'masonry'
-                 });
-               }, 100);
-             }
-           }
-         }
+    // DEBUG: kiểm tra tại sao không có item nào được render
+    function loadPortfolioData() {
+      const projects = getAllProjects();
+      const portfolioContainer = document.getElementById('portfolio-container');
+      
+      console.log('DEBUG: projects =', projects);
+      console.log('DEBUG: portfolioContainer =', portfolioContainer);
 
-         function initializePortfolioFiltering() {
-           const filterButtons = document.querySelectorAll('#portfolio-filters li');
-           const portfolioContainer = document.getElementById('portfolio-container');
-           
-           filterButtons.forEach(btn => {
-             btn.addEventListener('click', function () {
-               // Remove active class from all
-               filterButtons.forEach(b => b.classList.remove('filter-active'));
-               this.classList.add('filter-active');
+      if (!Array.isArray(projects)) {
+        console.error('getAllProjects() không trả về mảng!');
+        return;
+      }
+      if (!portfolioContainer) {
+        console.error('Không tìm thấy #portfolio-container!');
+        return;
+      }
+      if (projects.length === 0) {
+        console.warn('Không có project nào để render!');
+        portfolioContainer.innerHTML = '<div class="alert alert-warning">No projects found.</div>';
+        return;
+      }
 
-               const filter = this.getAttribute('data-filter');
-               const items = document.querySelectorAll('#portfolio-container .isotope-item');
+      portfolioContainer.innerHTML = '';
+      
+      projects.forEach((project, index) => {
+        console.log('DEBUG: render project', index, project);
+        const portfolioItem = document.createElement('div');
+        // Thêm class filter-<category> để filter hoạt động
+        const filterClass = project.category ? `filter-${project.category}` : '';
+        portfolioItem.className = `col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item ${filterClass}`;
+        
+        // Kiểm tra project.images
+        let imgSrc = '';
+        if (project.images && project.images.length > 0) {
+          imgSrc = project.images[0];
+        } else {
+          imgSrc = 'assets/img/portfolio/placeholder.png';
+          console.warn('Project thiếu images:', project);
+        }
+
+        portfolioItem.innerHTML = `
+          <article class="portfolio-entry">
+            <figure class="entry-image">
+              <img src="${imgSrc}" class="img-fluid" alt="" loading="lazy">
+              <div class="entry-overlay">
+                <div class="overlay-content">
+                  <div class="entry-meta">${project.category ? (project.category.charAt(0).toUpperCase() + project.category.slice(1)) : ''}</div>
+                  <h3 class="entry-title">${project.title || ''}</h3>
+                  <div class="entry-links">
+                    <a href="${imgSrc}" class="glightbox" data-gallery="portfolio-gallery-${project.category || 'other'}" data-glightbox="title: ${project.title || ''}; description: ${project.description || ''}">
+                      <i class="bi bi-arrows-angle-expand"></i>
+                    </a>
+                    <a href="portfolio-details.html?id=${project.id || ''}">
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </article>
+        `;
+        
+        portfolioContainer.appendChild(portfolioItem);
+      });
+
+      // No filter initialization, just masonry layout if Isotope is available
+      if (typeof Isotope !== 'undefined') {
+        setTimeout(() => {
+          const iso = new Isotope(portfolioContainer, {
+            itemSelector: '.portfolio-item',
+            layoutMode: 'masonry'
+          });
+        }, 100);
+      }
+    }
+
+        //  function initializePortfolioFiltering() {
+        //    const filterButtons = document.querySelectorAll('#portfolio-filters li');
+        //    const portfolioContainer = document.getElementById('portfolio-container');
+           
+        //    filterButtons.forEach(btn => {
+        //      btn.addEventListener('click', function () {
+        //        // Remove active class from all
+        //        filterButtons.forEach(b => b.classList.remove('filter-active'));
+        //        this.classList.add('filter-active');
+
+        //        const filter = this.getAttribute('data-filter');
+        //        const items = document.querySelectorAll('#portfolio-container .isotope-item');
                
-               console.log('Filter clicked:', filter); // Debug log
+        //        console.log('Filter clicked:', filter); // Debug log
                
-               items.forEach(item => {
-                 const itemClasses = item.className;
-                 console.log('Item classes:', itemClasses); // Debug log
+        //        items.forEach(item => {
+        //          const itemClasses = item.className;
+        //          console.log('Item classes:', itemClasses); // Debug log
                  
-                 if (filter === '*') {
-                   item.style.display = '';
-                   item.style.opacity = '1';
-                   item.style.visibility = 'visible';
-                 } else {
-                   const filterClass = filter.replace('.', '');
-                   if (item.classList.contains(filterClass)) {
-                     item.style.display = '';
-                     item.style.opacity = '1';
-                     item.style.visibility = 'visible';
-                   } else {
-                     item.style.display = 'none';
-                     item.style.opacity = '0';
-                     item.style.visibility = 'hidden';
-                   }
-                 }
-               });
+        //          if (filter === '*') {
+        //            item.style.display = '';
+        //            item.style.opacity = '1';
+        //            item.style.visibility = 'visible';
+        //          } else {
+        //            const filterClass = filter.replace('.', '');
+        //            if (item.classList.contains(filterClass)) {
+        //              item.style.display = '';
+        //              item.style.opacity = '1';
+        //              item.style.visibility = 'visible';
+        //            } else {
+        //              item.style.display = 'none';
+        //              item.style.opacity = '0';
+        //              item.style.visibility = 'hidden';
+        //            }
+        //          }
+        //        });
                
-               // Force layout recalculation to prevent overlap
-               setTimeout(() => {
-                 const portfolioSection = document.getElementById('portfolio');
-                 if (portfolioSection) {
-                   portfolioSection.style.minHeight = 'auto';
-                   // Trigger reflow
-                   portfolioSection.offsetHeight;
-                 }
-               }, 50);
-             });
-           });
-         }
+        //        // Force layout recalculation to prevent overlap
+        //        setTimeout(() => {
+        //          const portfolioSection = document.getElementById('portfolio');
+        //          if (portfolioSection) {
+        //            portfolioSection.style.minHeight = 'auto';
+        //            // Trigger reflow
+        //            portfolioSection.offsetHeight;
+        //          }
+        //        }, 50);
+        //      });
+        //    });
+        //  }
 
          function loadServicesData() {
            const services = getAllServices();
