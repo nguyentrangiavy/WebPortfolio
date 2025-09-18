@@ -682,26 +682,35 @@
       /* Ensure portfolio section maintains proper spacing */
       #portfolio {
         position: relative;
-        min-height: 600px; /* Minimum height to prevent collapse */
+        min-height: 800px; /* Increased minimum height to prevent collapse */
+        padding-bottom: 80px; /* Add bottom padding */
       }
       
       #portfolio .isotope-container {
-        min-height: 400px; /* Ensure container has minimum height */
+        min-height: 500px; /* Ensure container has minimum height */
       }
       
       /* Ensure proper spacing between portfolio and contact sections */
       #portfolio + * {
         margin-top: 0;
+        padding-top: 0;
       }
       
       /* Fix for filtered items */
       .isotope-item {
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
       }
       
       .isotope-item[style*="display: none"] {
         opacity: 0;
         pointer-events: none;
+        visibility: hidden;
+      }
+      
+      /* Ensure contact section has proper spacing */
+      #contact {
+        margin-top: 0;
+        padding-top: 60px;
       }
     </style>
 
@@ -1302,15 +1311,27 @@
                const filter = this.getAttribute('data-filter');
                const items = document.querySelectorAll('#portfolio-container .isotope-item');
                
+               console.log('Filter clicked:', filter); // Debug log
+               
                items.forEach(item => {
-                 if (filter === '*' || item.classList.contains(filter.replace('.', ''))) {
+                 const itemClasses = item.className;
+                 console.log('Item classes:', itemClasses); // Debug log
+                 
+                 if (filter === '*') {
                    item.style.display = '';
                    item.style.opacity = '1';
                    item.style.visibility = 'visible';
                  } else {
-                   item.style.display = 'none';
-                   item.style.opacity = '0';
-                   item.style.visibility = 'hidden';
+                   const filterClass = filter.replace('.', '');
+                   if (item.classList.contains(filterClass)) {
+                     item.style.display = '';
+                     item.style.opacity = '1';
+                     item.style.visibility = 'visible';
+                   } else {
+                     item.style.display = 'none';
+                     item.style.opacity = '0';
+                     item.style.visibility = 'hidden';
+                   }
                  }
                });
                
