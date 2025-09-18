@@ -678,6 +678,33 @@
 
     </section><!-- /Portfolio Section -->
 
+    <style>
+      /* Ensure portfolio section maintains proper spacing */
+      #portfolio {
+        position: relative;
+        min-height: 600px; /* Minimum height to prevent collapse */
+      }
+      
+      #portfolio .isotope-container {
+        min-height: 400px; /* Ensure container has minimum height */
+      }
+      
+      /* Ensure proper spacing between portfolio and contact sections */
+      #portfolio + * {
+        margin-top: 0;
+      }
+      
+      /* Fix for filtered items */
+      .isotope-item {
+        transition: opacity 0.3s ease;
+      }
+      
+      .isotope-item[style*="display: none"] {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+
     <!-- Testimonials Section -->
     <!-- <section id="testimonials" class="testimonials section"> -->
       <!-- Section Title -->
@@ -1211,53 +1238,94 @@
       }
     }
 
-    function loadPortfolioData() {
-      const projects = getAllProjects();
-      const portfolioContainer = document.getElementById('portfolio-container');
-      
-      if (portfolioContainer && projects.length > 0) {
-        portfolioContainer.innerHTML = '';
-        
-        projects.forEach((project, index) => {
-          const portfolioItem = document.createElement('div');
-          portfolioItem.className = `col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-${project.category}`;
-          
-          portfolioItem.innerHTML = `
-            <article class="portfolio-entry">
-              <figure class="entry-image">
-                <img src="${project.images[0]}" class="img-fluid" alt="" loading="lazy">
-                <div class="entry-overlay">
-                  <div class="overlay-content">
-                    <div class="entry-meta">${project.category.charAt(0).toUpperCase() + project.category.slice(1)}</div>
-                    <h3 class="entry-title">${project.title}</h3>
-                    <div class="entry-links">
-                      <a href="${project.images[0]}" class="glightbox" data-gallery="portfolio-gallery-${project.category}" data-glightbox="title: ${project.title}; description: ${project.description}">
-                        <i class="bi bi-arrows-angle-expand"></i>
-                      </a>
-                      <a href="portfolio-details.html?id=${project.id}">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-            </article>
-          `;
-          
-          portfolioContainer.appendChild(portfolioItem);
-        });
-        
-        // Reinitialize isotope after loading new content
-        if (typeof Isotope !== 'undefined') {
-          setTimeout(() => {
-            const iso = new Isotope(portfolioContainer, {
-              itemSelector: '.portfolio-item',
-              layoutMode: 'masonry'
-            });
-          }, 100);
-        }
-      }
-    }
+         function loadPortfolioData() {
+           const projects = getAllProjects();
+           const portfolioContainer = document.getElementById('portfolio-container');
+           
+           if (portfolioContainer && projects.length > 0) {
+             portfolioContainer.innerHTML = '';
+             
+             projects.forEach((project, index) => {
+               const portfolioItem = document.createElement('div');
+               portfolioItem.className = `col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-${project.category}`;
+               
+               portfolioItem.innerHTML = `
+                 <article class="portfolio-entry">
+                   <figure class="entry-image">
+                     <img src="${project.images[0]}" class="img-fluid" alt="" loading="lazy">
+                     <div class="entry-overlay">
+                       <div class="overlay-content">
+                         <div class="entry-meta">${project.category.charAt(0).toUpperCase() + project.category.slice(1)}</div>
+                         <h3 class="entry-title">${project.title}</h3>
+                         <div class="entry-links">
+                           <a href="${project.images[0]}" class="glightbox" data-gallery="portfolio-gallery-${project.category}" data-glightbox="title: ${project.title}; description: ${project.description}">
+                             <i class="bi bi-arrows-angle-expand"></i>
+                           </a>
+                           <a href="portfolio-details.html?id=${project.id}">
+                             <i class="bi bi-arrow-right"></i>
+                           </a>
+                         </div>
+                       </div>
+                     </div>
+                   </figure>
+                 </article>
+               `;
+               
+               portfolioContainer.appendChild(portfolioItem);
+             });
+             
+             // Initialize portfolio filtering
+             initializePortfolioFiltering();
+             
+             // Reinitialize isotope after loading new content
+             if (typeof Isotope !== 'undefined') {
+               setTimeout(() => {
+                 const iso = new Isotope(portfolioContainer, {
+                   itemSelector: '.portfolio-item',
+                   layoutMode: 'masonry'
+                 });
+               }, 100);
+             }
+           }
+         }
+
+         function initializePortfolioFiltering() {
+           const filterButtons = document.querySelectorAll('#portfolio-filters li');
+           const portfolioContainer = document.getElementById('portfolio-container');
+           
+           filterButtons.forEach(btn => {
+             btn.addEventListener('click', function () {
+               // Remove active class from all
+               filterButtons.forEach(b => b.classList.remove('filter-active'));
+               this.classList.add('filter-active');
+
+               const filter = this.getAttribute('data-filter');
+               const items = document.querySelectorAll('#portfolio-container .isotope-item');
+               
+               items.forEach(item => {
+                 if (filter === '*' || item.classList.contains(filter.replace('.', ''))) {
+                   item.style.display = '';
+                   item.style.opacity = '1';
+                   item.style.visibility = 'visible';
+                 } else {
+                   item.style.display = 'none';
+                   item.style.opacity = '0';
+                   item.style.visibility = 'hidden';
+                 }
+               });
+               
+               // Force layout recalculation to prevent overlap
+               setTimeout(() => {
+                 const portfolioSection = document.getElementById('portfolio');
+                 if (portfolioSection) {
+                   portfolioSection.style.minHeight = 'auto';
+                   // Trigger reflow
+                   portfolioSection.offsetHeight;
+                 }
+               }, 50);
+             });
+           });
+         }
 
          function loadServicesData() {
            const services = getAllServices();
