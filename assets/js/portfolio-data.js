@@ -33,31 +33,30 @@ const portfolioData = {
   // Experience
   experience: [
     {
-      id: "excellent-nodes",
+      id: "aios-link",
+      name: "AIOS Link",
       company: "EXCELLENT NODES",
-      period: "2023-2025",
+      period: "2024-2025",
       position: "Backend Developer",
-      projects: [
-        {
-          id: "aios-link",
-          name: "AIOS Link",
-          description: "Mobile app for social networking and event management",
-          technologies: ["Python", "FastAPI"],
-          features: ["Friend connection", "event creation/management", "user notifications"]
-        },
-        {
-          id: "qrsound",
-          name: "QRSound",
-          description: "Advertisement recognition app from audio clips",
-          technologies: ["Python", "Django REST Framework", "Librosa"],
-          features: ["Audio recording", "sound analysis", "ad recognition pipeline"]
-        }
-      ]
+      description: "Mobile app for social networking and event management",
+      technologies: ["Python", "FastAPI"],
+      features: ["Friend connection", "event creation/management", "user notifications"]
+    },
+    {
+      id: "qrsound",
+      name: "QRSound",
+      company: "EXCELLENT NODES",
+      period: "2024-2025",
+      position: "Backend Developer",
+      description: "Advertisement recognition app from audio clips",
+      technologies: ["Python", "Django REST Framework", "Librosa"],
+      features: ["Audio recording", "sound analysis", "ad recognition pipeline"]
     },
     {
       id: "bizbookly",
-      company: "Bizbookly",
-      period: "2023-2025",
+      name: "BizBookly",
+      company: "EXCELLENT NODES",
+      period: "2024-2025",
       position: "Backend Developer",
       description: "Salon booking management system with ERP integration",
       technologies: ["Python", "Django REST Framework"],
@@ -65,8 +64,9 @@ const portfolioData = {
     },
     {
       id: "vape",
-      company: "Vape",
-      period: "2023-2025",
+      name: "Vape Store",
+      company: "EXCELLENT NODES",
+      period: "2024-2025",
       position: "Backend Developer",
       description: "B2B2C retail and online sales platform with ERP integration",
       technologies: ["Python", "Django REST Framework"],
@@ -74,8 +74,9 @@ const portfolioData = {
     },
     {
       id: "chatbot",
-      company: "Chatbot Project",
-      period: "2023-2025",
+      name: "Smart Chatbot",
+      company: "EXCELLENT NODES",
+      period: "2023-2024",
       position: "Backend Developer",
       description: "Predefined Q&A chatbot",
       technologies: ["Python", "Django REST Framework"],
@@ -83,8 +84,9 @@ const portfolioData = {
     },
     {
       id: "hrmex",
-      company: "HRMEX",
-      period: "2023-2025",
+      name: "HRMEX",
+      company: "EXCELLENT NODES",
+      period: "2023-2024",
       position: "Backend Developer",
       description: "Internal HR management and attendance tracking system",
       technologies: ["Python", "FastAPI"],

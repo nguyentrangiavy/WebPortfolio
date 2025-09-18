@@ -1152,34 +1152,35 @@
           experienceCard.setAttribute('data-aos', 'zoom-in');
           experienceCard.setAttribute('data-aos-delay', (300 + (index * 100)).toString());
           
-          let projectsHtml = '';
-          if (exp.projects && exp.projects.length > 0) {
-            projectsHtml = '<ul class="achievements">';
-            exp.projects.forEach(project => {
-              projectsHtml += `<li><strong>${project.name}:</strong> ${project.description}</li>`;
-            });
-            projectsHtml += '</ul>';
-          } else if (exp.features && exp.features.length > 0) {
-            projectsHtml = '<ul class="achievements">';
-            exp.features.forEach(feature => {
-              projectsHtml += `<li>${feature}</li>`;
-            });
-            projectsHtml += '</ul>';
-          }
-          
-          experienceCard.innerHTML = `
-            <div class="card-header">
-              <div class="role-info">
-                <h3>${exp.position}</h3>
-                <h4>${exp.company}</h4>
-              </div>
-              <span class="duration">${exp.period}</span>
-            </div>
-            <div class="card-body">
-              <p>${exp.description || 'Professional backend development work with focus on scalable solutions and system integration.'}</p>
-              ${projectsHtml}
-            </div>
-          `;
+               let projectsHtml = '';
+               if (exp.projects && exp.projects.length > 0) {
+                 projectsHtml = '<ul class="achievements">';
+                 exp.projects.forEach(project => {
+                   projectsHtml += `<li><strong>${project.name}:</strong> ${project.description}</li>`;
+                 });
+                 projectsHtml += '</ul>';
+               } else if (exp.features && exp.features.length > 0) {
+                 projectsHtml = '<ul class="achievements">';
+                 exp.features.forEach(feature => {
+                   projectsHtml += `<li>${feature}</li>`;
+                 });
+                 projectsHtml += '</ul>';
+               }
+               
+               experienceCard.innerHTML = `
+                 <div class="card-header">
+                   <div class="role-info">
+                     <h3>${exp.position}</h3>
+                     <h4>${exp.company}</h4>
+                   </div>
+                   <span class="duration">${exp.period}</span>
+                 </div>
+                 <div class="card-body">
+                   <h5 class="project-name">${exp.name || 'Project'}</h5>
+                   <p>${exp.description || 'Professional backend development work with focus on scalable solutions and system integration.'}</p>
+                   ${projectsHtml}
+                 </div>
+               `;
           
           experienceContainer.appendChild(experienceCard);
         });
