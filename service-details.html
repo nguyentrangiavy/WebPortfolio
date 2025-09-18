@@ -26,6 +26,12 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  
+  <!-- Custom Spacing CSS -->
+  <link href="assets/css/custom-spacing.css" rel="stylesheet">
+
+  <!-- Portfolio Data -->
+  <script src="assets/js/portfolio-data.js"></script>
 
   <!-- =======================================================
   * Template Name: Style
@@ -51,13 +57,13 @@
       <nav id="navmenu" class="navmenu">
 
         <div class="profile-img">
-          <img src="assets/img/profile/profile-square-1.webp" alt="" class="img-fluid rounded-circle">
+          <img src="assets/img/profile/avatar-square.png" alt="" class="img-fluid rounded-circle">
         </div>
 
         <a href="index.html" class="logo d-flex align-items-center justify-content-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Alex Smith</h1>
+          <h1 class="sitename">GIA VỸ</h1>
         </a>
 
         <div class="social-links text-center">
@@ -123,114 +129,36 @@
 
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
             <div class="service-hero">
-              <img src="assets/img/services/services-7.webp" alt="" class="img-fluid">
+              <img src="assets/img/services/services-7.webp" alt="" class="img-fluid" id="service-hero-image">
               <div class="service-badge">
-                <span>Premium Service</span>
+                <span id="service-badge">Premium Service</span>
               </div>
             </div>
 
             <div class="service-content">
               <div class="service-header">
-                <h2>Digital Marketing Strategy &amp; Implementation</h2>
-                <p class="service-intro">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+                <h2 id="service-title">Digital Marketing Strategy &amp; Implementation</h2>
+                <p class="service-intro" id="service-description">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
               </div>
 
               <div class="service-features">
                 <h4>What You'll Get</h4>
-                <div class="row gy-3">
-                  <div class="col-md-6">
-                    <div class="feature-item">
-                      <div class="feature-icon">
-                        <i class="bi bi-graph-up-arrow"></i>
-                      </div>
-                      <div class="feature-content">
-                        <h5>Analytics &amp; Reporting</h5>
-                        <p>Comprehensive tracking and performance analysis</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="feature-item">
-                      <div class="feature-icon">
-                        <i class="bi bi-people"></i>
-                      </div>
-                      <div class="feature-content">
-                        <h5>Audience Targeting</h5>
-                        <p>Precise demographic and behavioral targeting</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="feature-item">
-                      <div class="feature-icon">
-                        <i class="bi bi-megaphone"></i>
-                      </div>
-                      <div class="feature-content">
-                        <h5>Multi-Channel Campaigns</h5>
-                        <p>Integrated social media and search marketing</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="feature-item">
-                      <div class="feature-icon">
-                        <i class="bi bi-gear"></i>
-                      </div>
-                      <div class="feature-content">
-                        <h5>Strategy Optimization</h5>
-                        <p>Continuous refinement for maximum ROI</p>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row gy-3" id="service-features-list">
+                  <!-- Dynamic features will be loaded here -->
                 </div>
               </div>
 
               <div class="service-process">
                 <h4>Our Process</h4>
-                <div class="process-steps">
-                  <div class="process-step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                      <h5>Discovery &amp; Analysis</h5>
-                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-                    </div>
-                  </div>
-                  <div class="process-step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                      <h5>Strategy Development</h5>
-                      <p>Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum primis in faucibus.</p>
-                    </div>
-                  </div>
-                  <div class="process-step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                      <h5>Implementation</h5>
-                      <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit eget tincidunt nibh pulvinar.</p>
-                    </div>
-                  </div>
-                  <div class="process-step">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                      <h5>Monitoring &amp; Optimization</h5>
-                      <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Proin eget tortor risus donec sollicitudin molestie.</p>
-                    </div>
-                  </div>
+                <div class="process-steps" id="service-process-steps">
+                  <!-- Dynamic process steps will be loaded here -->
                 </div>
               </div>
 
               <div class="service-gallery" data-aos="fade-up" data-aos-delay="300">
                 <h4>Project Showcase</h4>
-                <div class="row gy-3">
-                  <div class="col-md-4">
-                    <img src="assets/img/services/services-2.webp" alt="" class="img-fluid rounded">
-                  </div>
-                  <div class="col-md-4">
-                    <img src="assets/img/services/services-8.webp" alt="" class="img-fluid rounded">
-                  </div>
-                  <div class="col-md-4">
-                    <img src="assets/img/services/services-11.webp" alt="" class="img-fluid rounded">
-                  </div>
+                <div class="row gy-3" id="service-gallery-images">
+                  <!-- Dynamic gallery images will be loaded here -->
                 </div>
               </div>
             </div>
@@ -267,23 +195,8 @@
 
               <div class="service-info">
                 <h4>Service Details</h4>
-                <div class="info-list">
-                  <div class="info-item">
-                    <span class="info-label">Duration:</span>
-                    <span class="info-value">3-6 months</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="info-label">Team Size:</span>
-                    <span class="info-value">4-6 specialists</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="info-label">Delivery:</span>
-                    <span class="info-value">Bi-weekly reports</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="info-label">Support:</span>
-                    <span class="info-value">24/7 monitoring</span>
-                  </div>
+                <div class="info-list" id="service-info-list">
+                  <!-- Dynamic service info will be loaded here -->
                 </div>
               </div>
 
@@ -356,6 +269,158 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Service Details Dynamic Loader -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get service ID from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceId = urlParams.get('id') || 'backend-development'; // Default to backend-development if no ID provided
+      
+      // Load service data
+      const service = getServiceById(serviceId);
+      
+      if (service) {
+        loadServiceData(service);
+      } else {
+        // Handle case where service is not found
+        document.getElementById('service-title').textContent = 'Service Not Found';
+        document.getElementById('service-description').textContent = 'The requested service could not be found.';
+      }
+    });
+
+    function loadServiceData(service) {
+      // Update page title
+      document.title = `${service.title} - Service Details`;
+      
+      // Update service basic info
+      document.getElementById('service-title').textContent = service.title;
+      document.getElementById('service-description').textContent = service.description;
+      document.getElementById('service-badge').textContent = 'Professional Service';
+      
+      // Update hero image
+      if (service.images && service.images.length > 0) {
+        document.getElementById('service-hero-image').src = service.images[0];
+      }
+      
+      // Load service features
+      loadServiceFeatures(service.features);
+      
+      // Load process steps
+      loadProcessSteps(service.process);
+      
+      // Load gallery images
+      loadServiceGallery(service.images);
+      
+      // Load service info
+      loadServiceInfo(service);
+    }
+
+    function loadServiceFeatures(features) {
+      const featuresContainer = document.getElementById('service-features-list');
+      featuresContainer.innerHTML = '';
+      
+      // Icon mapping for different feature types
+      const iconMap = {
+        'RESTful API Development': 'bi-server',
+        'Microservices Architecture': 'bi-diagram-3',
+        'Database Design & Optimization': 'bi-database',
+        'Authentication & Authorization': 'bi-shield-check',
+        'Third-party Integrations': 'bi-plug',
+        'Performance Optimization': 'bi-lightning',
+        'Payment Gateway Integration': 'bi-credit-card',
+        'Social Media API Integration': 'bi-share',
+        'Communication Services (SMS, Email)': 'bi-envelope',
+        'Cloud Service Integration': 'bi-cloud',
+        'Data Synchronization': 'bi-arrow-repeat',
+        'Real-time Notifications': 'bi-bell',
+        'Inventory Management': 'bi-box',
+        'Customer Relationship Management': 'bi-people',
+        'Human Resource Management': 'bi-person-badge',
+        'Financial Management': 'bi-calculator',
+        'Reporting & Analytics': 'bi-graph-up',
+        'Multi-location Support': 'bi-geo-alt'
+      };
+      
+      features.forEach((feature, index) => {
+        const col = document.createElement('div');
+        col.className = 'col-md-6';
+        
+        const featureItem = document.createElement('div');
+        featureItem.className = 'feature-item';
+        
+        const icon = document.createElement('div');
+        icon.className = 'feature-icon';
+        icon.innerHTML = `<i class="bi ${iconMap[feature] || 'bi-check-circle'}"></i>`;
+        
+        const content = document.createElement('div');
+        content.className = 'feature-content';
+        content.innerHTML = `
+          <h5>${feature}</h5>
+          <p>Professional implementation of ${feature.toLowerCase()}</p>
+        `;
+        
+        featureItem.appendChild(icon);
+        featureItem.appendChild(content);
+        col.appendChild(featureItem);
+        featuresContainer.appendChild(col);
+      });
+    }
+
+    function loadProcessSteps(process) {
+      const processContainer = document.getElementById('service-process-steps');
+      processContainer.innerHTML = '';
+      
+      process.forEach(step => {
+        const stepElement = document.createElement('div');
+        stepElement.className = 'process-step';
+        stepElement.innerHTML = `
+          <div class="step-number">${step.step}</div>
+          <div class="step-content">
+            <h5>${step.title}</h5>
+            <p>${step.description}</p>
+          </div>
+        `;
+        processContainer.appendChild(stepElement);
+      });
+    }
+
+    function loadServiceGallery(images) {
+      const galleryContainer = document.getElementById('service-gallery-images');
+      galleryContainer.innerHTML = '';
+      
+      if (images && images.length > 0) {
+        images.slice(1, 4).forEach(image => { // Skip first image as it's used as hero
+          const col = document.createElement('div');
+          col.className = 'col-md-4';
+          col.innerHTML = `<img src="${image}" alt="" class="img-fluid rounded">`;
+          galleryContainer.appendChild(col);
+        });
+      }
+    }
+
+    function loadServiceInfo(service) {
+      const infoContainer = document.getElementById('service-info-list');
+      infoContainer.innerHTML = '';
+      
+      const infoItems = [
+        { label: 'Duration:', value: service.duration },
+        { label: 'Team Size:', value: service.teamSize },
+        { label: 'Delivery:', value: service.delivery },
+        { label: 'Support:', value: service.support }
+      ];
+      
+      infoItems.forEach(item => {
+        const infoItem = document.createElement('div');
+        infoItem.className = 'info-item';
+        infoItem.innerHTML = `
+          <span class="info-label">${item.label}</span>
+          <span class="info-value">${item.value}</span>
+        `;
+        infoContainer.appendChild(infoItem);
+      });
+    }
+  </script>
 
 </body>
 

@@ -26,6 +26,12 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  
+  <!-- Custom Spacing CSS -->
+  <link href="assets/css/custom-spacing.css" rel="stylesheet">
+
+  <!-- Portfolio Data -->
+  <script src="assets/js/portfolio-data.js"></script>
 
   <!-- =======================================================
   * Template Name: Style
@@ -51,13 +57,13 @@
       <nav id="navmenu" class="navmenu">
 
         <div class="profile-img">
-          <img src="assets/img/profile/profile-square-1.webp" alt="" class="img-fluid rounded-circle">
+          <img src="assets/img/profile/avatar-square.png" alt="" class="img-fluid rounded-circle">
         </div>
 
         <a href="index.html" class="logo d-flex align-items-center justify-content-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Alex Smith</h1>
+          <h1 class="sitename">GIA VỸ</h1>
         </a>
 
         <div class="social-links text-center">
@@ -148,16 +154,8 @@
                       }
                     }
                   </script>
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img src="assets/img/portfolio/portfolio-5.webp" alt="Portfolio Image" class="img-fluid">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/img/portfolio/portfolio-7.webp" alt="Portfolio Image" class="img-fluid">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/img/portfolio/portfolio-8.webp" alt="Portfolio Image" class="img-fluid">
-                    </div>
+                  <div class="swiper-wrapper" id="portfolio-slides">
+                    <!-- Dynamic slides will be loaded here -->
                   </div>
                   <div class="swiper-button-prev"></div>
                   <div class="swiper-button-next"></div>
@@ -181,12 +179,8 @@
                 </div>
               </div>
 
-              <div class="tech-stack-badges" data-aos="fade-up" data-aos-delay="300">
-                <span>Angular</span>
-                <span>Express.js</span>
-                <span>PostgreSQL</span>
-                <span>GraphQL</span>
-                <span>Firebase</span>
+              <div class="tech-stack-badges" data-aos="fade-up" data-aos-delay="300" id="tech-stack">
+                <!-- Dynamic tech stack will be loaded here -->
               </div>
             </div>
           </div>
@@ -195,30 +189,30 @@
             <div class="portfolio-details-content">
               <div class="project-meta">
                 <div class="badge-wrapper">
-                  <span class="project-badge">UX/UI Design</span>
+                  <span class="project-badge" id="project-category">Development</span>
                 </div>
                 <div class="date-client">
                   <div class="meta-item">
                     <i class="bi bi-calendar-check"></i>
-                    <span>September 2024</span>
+                    <span id="project-date">September 2024</span>
                   </div>
                   <div class="meta-item">
                     <i class="bi bi-buildings"></i>
-                    <span>DigitalCraft Solutions</span>
+                    <span id="project-client">Client Name</span>
                   </div>
                 </div>
               </div>
 
-              <h2 class="project-title">Innovative Financial Dashboard App</h2>
+              <h2 class="project-title" id="project-title">Project Title</h2>
 
               <div class="project-website">
                 <i class="bi bi-link-45deg"></i>
-                <a href="#" target="_blank">projectwebsite.example.com</a>
+                <a href="#" target="_blank" id="project-website">projectwebsite.example.com</a>
               </div>
 
               <div class="project-overview">
-                <p class="lead">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et. Aenean eu enim justo. Vestibulum aliquam hendrerit molestie.
+                <p class="lead" id="project-description">
+                  Loading project description...
                 </p>
 
                 <div class="accordion project-accordion" id="portfolio-details-projectAccordion">
@@ -229,8 +223,8 @@
                       </button>
                     </h2>
                     <div id="portfolio-details-collapse-1" class="accordion-collapse collapse show" data-bs-parent="#portfolio-details-projectAccordion">
-                      <div class="accordion-body">
-                        <p>Cras ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>
+                      <div class="accordion-body" id="project-overview-content">
+                        <p>Loading project overview...</p>
                       </div>
                     </div>
                   </div>
@@ -242,8 +236,8 @@
                       </button>
                     </h2>
                     <div id="portfolio-details-collapse-2" class="accordion-collapse collapse" data-bs-parent="#portfolio-details-projectAccordion">
-                      <div class="accordion-body">
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere blandit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh.</p>
+                      <div class="accordion-body" id="project-challenge-content">
+                        <p>Loading project challenge...</p>
                       </div>
                     </div>
                   </div>
@@ -255,8 +249,8 @@
                       </button>
                     </h2>
                     <div id="portfolio-details-collapse-3" class="accordion-collapse collapse" data-bs-parent="#portfolio-details-projectAccordion">
-                      <div class="accordion-body">
-                        <p>Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+                      <div class="accordion-body" id="project-solution-content">
+                        <p>Loading project solution...</p>
                       </div>
                     </div>
                   </div>
@@ -265,21 +259,8 @@
 
               <div class="project-features" data-aos="fade-up" data-aos-delay="300">
                 <h3><i class="bi bi-stars"></i> Key Features</h3>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <ul class="feature-list">
-                      <li><i class="bi bi-check2-circle"></i> Real-time Data Visualization</li>
-                      <li><i class="bi bi-check2-circle"></i> User Role Management</li>
-                      <li><i class="bi bi-check2-circle"></i> Secure Authentication</li>
-                    </ul>
-                  </div>
-                  <div class="col-md-6">
-                    <ul class="feature-list">
-                      <li><i class="bi bi-check2-circle"></i> Customizable Dashboards</li>
-                      <li><i class="bi bi-check2-circle"></i> Data Export Options</li>
-                      <li><i class="bi bi-check2-circle"></i> Multi-device Support</li>
-                    </ul>
-                  </div>
+                <div class="row g-3" id="project-features-list">
+                  <!-- Dynamic features will be loaded here -->
                 </div>
               </div>
 
@@ -337,6 +318,151 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Portfolio Details Dynamic Loader -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get project ID from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('id') || 'aios-link'; // Default to aios-link if no ID provided
+      
+      // Load project data
+      const project = getProjectById(projectId);
+      
+      if (project) {
+        loadProjectData(project);
+      } else {
+        // Handle case where project is not found
+        document.getElementById('project-title').textContent = 'Project Not Found';
+        document.getElementById('project-description').textContent = 'The requested project could not be found.';
+      }
+    });
+
+    function loadProjectData(project) {
+      // Update page title
+      document.title = `${project.title} - Portfolio Details`;
+      
+      // Update project basic info
+      document.getElementById('project-title').textContent = project.title;
+      document.getElementById('project-description').textContent = project.description;
+      document.getElementById('project-category').textContent = project.category.charAt(0).toUpperCase() + project.category.slice(1);
+      document.getElementById('project-date').textContent = project.date;
+      document.getElementById('project-client').textContent = project.client;
+      document.getElementById('project-website').href = project.website;
+      document.getElementById('project-website').textContent = project.website;
+      
+      // Update project content
+      document.getElementById('project-overview-content').innerHTML = `<p>${project.longDescription}</p>`;
+      document.getElementById('project-challenge-content').innerHTML = `<p>${project.challenge}</p>`;
+      document.getElementById('project-solution-content').innerHTML = `<p>${project.solution}</p>`;
+      
+      // Load project images
+      loadProjectImages(project.images);
+      
+      // Load tech stack
+      loadTechStack(project.technologies);
+      
+      // Load features
+      loadProjectFeatures(project.features);
+    }
+
+    function loadProjectImages(images) {
+      const slidesContainer = document.getElementById('portfolio-slides');
+      slidesContainer.innerHTML = '';
+      
+      images.forEach(image => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `<img src="${image}" alt="Portfolio Image" class="img-fluid">`;
+        slidesContainer.appendChild(slide);
+      });
+      
+      // Reinitialize Swiper after loading new content
+      if (window.swiperInstances && window.swiperInstances.portfolioDetails) {
+        window.swiperInstances.portfolioDetails.destroy();
+      }
+      
+      // Initialize new Swiper
+      const swiperConfig = {
+        loop: true,
+        speed: 1000,
+        autoplay: {
+          delay: 6000
+        },
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400]
+          },
+          next: {
+            translate: ["100%", 0, 0]
+          }
+        },
+        slidesPerView: 1,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      };
+      
+      window.swiperInstances = window.swiperInstances || {};
+      window.swiperInstances.portfolioDetails = new Swiper('.portfolio-details-slider', swiperConfig);
+    }
+
+    function loadTechStack(technologies) {
+      const techStackContainer = document.getElementById('tech-stack');
+      techStackContainer.innerHTML = '';
+      
+      technologies.forEach(tech => {
+        const badge = document.createElement('span');
+        badge.textContent = tech;
+        techStackContainer.appendChild(badge);
+      });
+    }
+
+    function loadProjectFeatures(features) {
+      const featuresContainer = document.getElementById('project-features-list');
+      featuresContainer.innerHTML = '';
+      
+      // Split features into two columns
+      const midPoint = Math.ceil(features.length / 2);
+      const leftFeatures = features.slice(0, midPoint);
+      const rightFeatures = features.slice(midPoint);
+      
+      // Create left column
+      const leftCol = document.createElement('div');
+      leftCol.className = 'col-md-6';
+      const leftList = document.createElement('ul');
+      leftList.className = 'feature-list';
+      
+      leftFeatures.forEach(feature => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="bi bi-check2-circle"></i> ${feature}`;
+        leftList.appendChild(li);
+      });
+      
+      leftCol.appendChild(leftList);
+      featuresContainer.appendChild(leftCol);
+      
+      // Create right column if there are features for it
+      if (rightFeatures.length > 0) {
+        const rightCol = document.createElement('div');
+        rightCol.className = 'col-md-6';
+        const rightList = document.createElement('ul');
+        rightList.className = 'feature-list';
+        
+        rightFeatures.forEach(feature => {
+          const li = document.createElement('li');
+          li.innerHTML = `<i class="bi bi-check2-circle"></i> ${feature}`;
+          rightList.appendChild(li);
+        });
+        
+        rightCol.appendChild(rightList);
+        featuresContainer.appendChild(rightCol);
+      }
+    }
+  </script>
 
 </body>
 

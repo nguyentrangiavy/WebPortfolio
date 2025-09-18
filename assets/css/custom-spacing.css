@@ -1,0 +1,219 @@
+/* Custom spacing adjustments to reduce gaps between layers */
+
+/* Reduce section padding */
+.section {
+  padding: 30px 0 !important; /* Reduced from 60px */
+}
+
+/* Reduce hero section padding */
+.hero {
+  padding: 40px 0 !important; /* Reduced from 120px */
+}
+
+/* Reduce section title padding */
+.section-title {
+  padding-bottom: 30px !important; /* Reduced from 60px */
+}
+
+/* Reduce spacing in hero content */
+.hero .content-wrapper {
+  margin-bottom: 20px !important;
+}
+
+.hero .hero-stats {
+  margin: 20px 0 !important; /* Reduced spacing */
+}
+
+.hero .hero-actions {
+  margin: 20px 0 !important; /* Reduced spacing */
+}
+
+/* Reduce spacing in about section */
+.about .about-content {
+  margin-top: 20px !important;
+}
+
+.about .skills-grid {
+  margin-top: 20px !important;
+}
+
+.about .journey-timeline {
+  margin-top: 20px !important;
+}
+
+.about .cta-section {
+  margin-top: 20px !important;
+}
+
+/* Reduce spacing in skills section */
+.skills .skills-grid {
+  margin-bottom: 20px !important;
+}
+
+.skills .skills-summary {
+  margin-top: 20px !important;
+}
+
+/* Reduce spacing in resume section */
+.resume .experience-section,
+.resume .education-section {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce spacing in services section */
+.services .service-item {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce spacing in portfolio section */
+.portfolio .portfolio-item {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce spacing in testimonials section */
+.testimonials .critic-reviews {
+  margin-bottom: 20px !important;
+}
+
+.testimonials .testimonials-container {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce spacing in FAQ section */
+.faq .faq-container {
+  margin-top: 20px !important;
+}
+
+/* Reduce spacing in contact section */
+.contact .info-box {
+  margin-bottom: 20px !important;
+}
+
+.contact .contact-form {
+  margin-top: 20px !important;
+}
+
+/* Reduce header height */
+.header {
+  padding: 10px 0 !important; /* Reduced header padding */
+}
+
+/* Reduce page title padding */
+.page-title {
+  padding: 20px 0 !important; /* Reduced from default */
+}
+
+/* Portfolio details spacing adjustments */
+.portfolio-details .portfolio-details-content {
+  margin-top: 20px !important;
+}
+
+.portfolio-details .project-features {
+  margin-top: 20px !important;
+}
+
+/* Service details spacing adjustments */
+.service-details .service-content {
+  margin-top: 20px !important;
+}
+
+.service-details .service-features {
+  margin-top: 20px !important;
+}
+
+.service-details .service-process {
+  margin-top: 20px !important;
+}
+
+.service-details .service-gallery {
+  margin-top: 20px !important;
+}
+
+/* Reduce container margins */
+.container {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce row spacing */
+.row {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce column spacing */
+.col-lg-6,
+.col-lg-4,
+.col-lg-8,
+.col-md-6,
+.col-md-4 {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce card spacing */
+.card,
+.service-item,
+.portfolio-item {
+  margin-bottom: 20px !important;
+}
+
+/* Reduce button spacing */
+.btn {
+  margin: 5px !important;
+}
+
+/* Reduce form spacing */
+.form-control {
+  margin-bottom: 15px !important;
+}
+
+/* Reduce list spacing */
+ul, ol {
+  margin-bottom: 15px !important;
+}
+
+li {
+  margin-bottom: 5px !important;
+}
+
+/* Reduce paragraph spacing */
+p {
+  margin-bottom: 15px !important;
+}
+
+/* Reduce heading spacing */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 15px !important;
+}
+
+/* Reduce image spacing */
+img {
+  margin-bottom: 15px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: 20px 0 !important;
+  }
+  
+  .hero {
+    padding: 30px 0 !important;
+  }
+  
+  .section-title {
+    padding-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: 15px 0 !important;
+  }
+  
+  .hero {
+    padding: 20px 0 !important;
+  }
+  
+  .section-title {
+    padding-bottom: 15px !important;
+  }
+}
